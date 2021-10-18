@@ -1,5 +1,7 @@
 $(function(){
 
+    const URL_BACKEND_PRODUCTS = 'http://mex-front.tk:8080/api/products/page';
+
     var page = 1,
         pagelimit = 10,
         totalrecord = 0;
@@ -27,7 +29,7 @@ $(function(){
     function fetchData() {
         // ajax() method to make api calls
         $.ajax({
-            url: "http://localhost:3001/api/products/page",
+            url: URL_BACKEND_PRODUCTS,
             type: "GET",
             data: {
                 page: page,
@@ -45,6 +47,7 @@ $(function(){
                     for (var i = 0; i < dataArr.length; i++) {
                         html += "<div class='sample-user'>"+
                             "<h3>ID: " + dataArr[i]._id + "</h3>"+
+                            "<h2>Description: " + dataArr[i].description + "</h2>"+
                             "<p>Price: " + dataArr[i].price + "</p>" +
                             "</div>"+
                             "<hr />";
